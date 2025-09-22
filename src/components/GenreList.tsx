@@ -1,4 +1,4 @@
-import { getCroppedImageUrl } from '@/services/imageClient';
+import getCroppedImageUrl from '@/services/imageClient';
 import useGenres from './hooks/useGenres';
 import { HStack, Image, List, ListItem, Text } from '@chakra-ui/react';
 
