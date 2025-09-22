@@ -5,13 +5,13 @@ const GameCardSkeleton = () => {
     <Card.Root>
       <Skeleton height="200px" />
       <Card.Body>
-        <SkeletonText noOfLines={2} />
         <HStack justifyContent="space-between" marginTop={4}>
           <HStack margin="10px">
             <SkeletonText noOfLines={1} width="100px" />
           </HStack>
           <SkeletonText noOfLines={1} width="50px" />
         </HStack>
+        <SkeletonText noOfLines={2} />
       </Card.Body>
     </Card.Root>
   );
