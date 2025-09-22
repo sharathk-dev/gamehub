@@ -11,19 +11,13 @@ const PlatformSelector = ({ selectedPlatform, onSelectPlatform }: Props) => {
   const { data, error, isLoading } = usePlatforms();
 
   if (error) return;
-  if (isLoading) return <Spinner />;
 
   return (
     <Menu.Root>
       <Menu.Trigger asChild>
         <Button size="sm" variant="outline">
-          {selectedPlatform ? (
-            selectedPlatform.name
-          ) : (
-            <>
-              Platforms <LuChevronDown />
-            </>
-          )}
+          {selectedPlatform ? selectedPlatform.name : <>Platforms</>}
+          {isLoading ? <Spinner /> : <LuChevronDown />}
         </Button>
       </Menu.Trigger>
       <Portal>
