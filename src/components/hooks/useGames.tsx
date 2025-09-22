@@ -19,7 +19,7 @@ interface FetchGameResponse {
   results: Game[];
 }
 
-const useUsers = () => {
+const useGames = () => {
   const [games, setGames] = useState<Game[]>([]);
   const [error, setError] = useState('');
   const [isLoading, setLoading] = useState(true);
@@ -46,4 +46,4 @@ const useUsers = () => {
   return { games, error, isLoading, setGames, setError, setLoading };
 };
 
-export default useUsers;
+export default useGames;
