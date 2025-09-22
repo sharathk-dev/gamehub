@@ -14,7 +14,9 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
     <>
       {!isLoading && (
         <>
-          <Heading fontSize="lg">Genres</Heading>
+          <Heading fontSize="lg" marginTop={7}>
+            Genres
+          </Heading>
           <List.Root variant="plain">
             {data.map(genre => (
               <ListItem key={genre.id} paddingY="5px">
