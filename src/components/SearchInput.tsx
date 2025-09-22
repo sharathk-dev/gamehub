@@ -16,8 +16,8 @@ const SearchInput = ({ onSearch }: Props) => {
         if (ref.current) onSearch(ref.current.value);
       }}
     >
-      <InputGroup flex="1" startElement={<LuSearch />} endElement={<Kbd>⌘K</Kbd>}>
-        <Input ref={ref} placeholder="Search" />
+      <InputGroup startElement={<LuSearch />}>
+        <Input ref={ref} borderRadius="20px" placeholder="Search" />
       </InputGroup>
     </form>
   );
