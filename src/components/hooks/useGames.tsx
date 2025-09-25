@@ -16,8 +16,8 @@ const useGames = (gameQuery: GameQuery) =>
     queryKey: [
       'games',
       {
-        genreId: gameQuery.genre?.id ?? null,
-        platformId: gameQuery.platform?.id ?? null,
+        genreId: gameQuery.genreId ?? null,
+        platformId: gameQuery.platformId ?? null,
         sortOrder: gameQuery.sortOrder || null,
         searchKey: gameQuery.searchText || null,
       },
@@ -26,8 +26,8 @@ const useGames = (gameQuery: GameQuery) =>
     queryFn: ({ pageParam }) =>
       new APIClient<Game>('/games').getAll({
         params: {
-          genres: gameQuery.genre?.id,
-          parent_platforms: gameQuery.platform?.id,
+          genres: gameQuery.genreId,
+          parent_platforms: gameQuery.platformId,
           ordering: gameQuery.sortOrder,
           search: gameQuery.searchText,
           page: pageParam,

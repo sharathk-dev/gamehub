@@ -1,13 +1,12 @@
 import { Button, Menu, Portal, Spinner } from '@chakra-ui/react';
 import usePlatforms from './hooks/usePlatforms';
 import { LuChevronDown } from 'react-icons/lu';
-import type { Platform } from './hooks/usePlatforms';
 
 interface Props {
-  selectedPlatform: Platform | null;
-  onSelectPlatform: (platform: Platform) => void;
+  selectedPlatformId?: number;
+  onSelectPlatform: (platformId: number) => void;
 }
-const PlatformSelector = ({ selectedPlatform, onSelectPlatform }: Props) => {
+const PlatformSelector = ({ selectedPlatformId, onSelectPlatform }: Props) => {
   const { data, error, isLoading } = usePlatforms();
 
   if (error) {
@@ -19,7 +18,7 @@ const PlatformSelector = ({ selectedPlatform, onSelectPlatform }: Props) => {
     <Menu.Root>
       <Menu.Trigger asChild>
         <Button size="sm" variant="outline">
-          {selectedPlatform ? selectedPlatform.name : <>Platforms</>}
+          {selectedPlatformId ? data?.results.find(d => d.id == selectedPlatformId)?.name : <>Platforms</>}
           {isLoading ? <Spinner /> : <LuChevronDown />}
         </Button>
       </Menu.Trigger>
@@ -27,7 +26,11 @@ const PlatformSelector = ({ selectedPlatform, onSelectPlatform }: Props) => {
         <Menu.Positioner>
           <Menu.Content>
             {data?.results.map(platform => (
-              <Menu.Item key={platform.id} value={platform.name} onClick={() => onSelectPlatform(platform)}>
+              <Menu.Item
+                key={platform.id}
+                value={platform.name}
+                onClick={() => onSelectPlatform(platform.id)}
+              >
                 {platform.name}
               </Menu.Item>
             ))}
