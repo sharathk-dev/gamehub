@@ -4,7 +4,7 @@ import { SiNintendo } from 'react-icons/si';
 import { Icon } from '@chakra-ui/react';
 import { BsGlobe } from 'react-icons/bs';
 
-import { type Platform } from './hooks/useGames';
+import { type Platform } from './hooks/usePlatforms';
 import type { IconType } from 'react-icons';
 
 interface Props {
@@ -25,12 +25,14 @@ const PlatformIconList = ({ platforms }: Props) => {
   };
   return (
     <>
-      {platforms.map(
-        platform =>
-          iconMap[platform.slug] && (
-            <Icon key={platform.slug} color={'gray.500'} as={iconMap[platform.slug]} />
-          )
-      )}
+      {platforms &&
+        platforms.length != 0 &&
+        platforms.map(
+          platform =>
+            iconMap[platform.slug] && (
+              <Icon key={platform.slug} color={'gray.500'} as={iconMap[platform.slug]} />
+            )
+        )}
     </>
   );
 };

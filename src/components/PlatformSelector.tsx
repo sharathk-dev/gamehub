@@ -1,7 +1,7 @@
 import { Button, Menu, Portal, Spinner } from '@chakra-ui/react';
 import usePlatforms from './hooks/usePlatforms';
 import { LuChevronDown } from 'react-icons/lu';
-import type { Platform } from './hooks/useGames';
+import type { Platform } from './hooks/usePlatforms';
 
 interface Props {
   selectedPlatform: Platform | null;
