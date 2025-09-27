@@ -7,6 +7,7 @@ import Notification from './Notification';
 import React from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import GameGridSkeleton from './GameGridSkeleton';
+import { Link } from 'react-router-dom';
 
 const GameGrid = () => {
   const { data, error, isLoading, fetchNextPage, hasNextPage } = useGames();
@@ -27,7 +28,9 @@ const GameGrid = () => {
             <React.Fragment key={pageIndex}>
               {page.results.map(game => (
                 <GameCardContainer key={game.id}>
-                  <GameCard key={game.id} game={game} />
+                  <Link to={`/games/${game.slug}`}>
+                    <GameCard key={game.id} game={game} />
+                  </Link>
                 </GameCardContainer>
               ))}
             </React.Fragment>
