@@ -2,18 +2,14 @@ import { Box, SimpleGrid } from '@chakra-ui/react';
 import useGames from './hooks/useGames';
 import GameCard from './GameCard';
 import GameCardContainer from './GameCardContainer';
-import type { GameQuery } from '@/App';
 import ProgressIndefinite from './ProgressIndefinite';
 import Notification from './Notification';
 import React from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import GameGridSkeleton from './GameGridSkeleton';
 
-interface Props {
-  gameQuery: GameQuery;
-}
-const GameGrid = ({ gameQuery }: Props) => {
-  const { data, error, isLoading, fetchNextPage, hasNextPage } = useGames(gameQuery);
+const GameGrid = () => {
+  const { data, error, isLoading, fetchNextPage, hasNextPage } = useGames();
 
   if (error) return <Notification status="error" message={error.message} />;
 
