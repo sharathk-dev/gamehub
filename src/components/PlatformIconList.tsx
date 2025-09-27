@@ -4,7 +4,7 @@ import { SiNintendo } from 'react-icons/si';
 import { Icon } from '@chakra-ui/react';
 import { BsGlobe } from 'react-icons/bs';
 
-import { type Platform } from './entities/Platform';
+import type Platform from './entities/Platform';
 import type { IconType } from 'react-icons';
 
 interface Props {

@@ -1,7 +1,7 @@
 import { SimpleGrid, Text } from '@chakra-ui/react';
 import CriticScore from './CriticScore';
 import GameDefinitionItem from './GameDefinitionItem';
-import type { Game } from './entities/Game';
+import type Game from './entities/Game';
 
 interface Props {
   game: Game;
