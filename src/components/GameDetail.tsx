@@ -4,6 +4,7 @@ import ProgressIndefinite from '@/components/ProgressIndefinite';
 import { Box, Heading } from '@chakra-ui/react';
 import { useParams } from 'react-router-dom';
 import Notification from '../components/Notification';
+import GameAttributes from './GameAttributes';
 
 const GameDetail = () => {
   const { slug } = useParams();
@@ -11,12 +12,14 @@ const GameDetail = () => {
 
   if (!isLoading && (error || !game))
     return <Notification status="error" message={error?.message || 'Something went wrong!'} />;
+  if (!game) return;
 
   return (
     <Box padding="10px">
       {isLoading && !error && <ProgressIndefinite />}
       <Heading>{game?.name}</Heading>
       <ExpandableText>{game?.description_raw ?? ''}</ExpandableText>
+      <GameAttributes game={game} />
     </Box>
   );
 };
