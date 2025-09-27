@@ -2,12 +2,7 @@ import platformsData from '@/data/platformsData';
 import APIClient, { type FetchResponse } from '@/services/apiClient';
 import { useQuery } from '@tanstack/react-query';
 import ms from 'ms';
-
-export interface Platform {
-  id: number;
-  name: string;
-  slug: string;
-}
+import type { Platform } from '../entities/Platform';
 
 const usePlatforms = () =>
   useQuery<FetchResponse<Platform>, Error>({

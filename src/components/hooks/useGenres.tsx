@@ -2,12 +2,7 @@ import genresData from '@/data/genresData';
 import APIClient, { type FetchResponse } from '@/services/apiClient';
 import { useQuery } from '@tanstack/react-query';
 import ms from 'ms';
-
-export interface Genre {
-  id: number;
-  name: string;
-  image_background: string;
-}
+import type { Genre } from '../entities/Genre';
 
 const useGenres = () =>
   useQuery<FetchResponse<Genre>, Error>({
