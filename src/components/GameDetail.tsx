@@ -1,7 +1,7 @@
 import ExpandableText from './ExpandableText';
 import useGame from '@/components/hooks/useGame';
 import ProgressIndefinite from '@/components/ProgressIndefinite';
-import { Box, Heading } from '@chakra-ui/react';
+import { Box, GridItem, Heading, SimpleGrid } from '@chakra-ui/react';
 import { useParams } from 'react-router-dom';
 import Notification from '../components/Notification';
 import GameAttributes from './GameAttributes';
@@ -19,11 +19,17 @@ const GameDetail = () => {
   return (
     <Box padding="10px">
       {isLoading && !error && <ProgressIndefinite />}
-      <Heading>{game?.name}</Heading>
-      <ExpandableText>{game?.description_raw ?? ''}</ExpandableText>
-      <GameAttributes game={game} />
-      <GameTrailer gameId={game.id} />
-      <GameScreenshots gameId={game.id} />
+      <SimpleGrid columns={{ base: 1, md: 2 }} gap={5}>
+        <GridItem>
+          <Heading>{game?.name}</Heading>
+          <ExpandableText>{game?.description_raw ?? ''}</ExpandableText>
+          <GameAttributes game={game} />
+        </GridItem>
+        <GridItem>
+          <GameTrailer gameId={game.id} />
+          <GameScreenshots gameId={game.id} />
+        </GridItem>
+      </SimpleGrid>
     </Box>
   );
 };
